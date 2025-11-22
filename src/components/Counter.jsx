@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { decrement, increment } from "../redux/counter/actions";
 
 export const Counter = ({ count, increment, decrement }) => {
   return (
@@ -22,4 +24,16 @@ export const Counter = ({ count, increment, decrement }) => {
   );
 };
 
-export default Counter;
+const mapStateToProps = (state) => {
+  return {
+    count: state.value,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: (value) => dispatch(increment(value)),
+    decrement: (value) => dispatch(decrement(value)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
