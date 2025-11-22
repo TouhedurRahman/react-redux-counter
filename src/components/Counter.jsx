@@ -26,7 +26,7 @@ export const Counter = ({ count, increment, decrement }) => {
 
 const mapStateToProps = (state) => {
   return {
-    count: state.value,
+    count: state.counter.value,
   };
 };
 const mapDispatchToProps = (dispatch) => {
